@@ -74,7 +74,7 @@ class Writer(object):
     def unflushed_write_value(self, value):
         if hasattr(value, '__to_json__'):
             self.unflushed_write_value(value.__to_json__())
-        elif isinstance(value, unicode):
+        elif isinstance(value, str):
             self.s.write('"')
             for c in value:
                 if c == '\b':
