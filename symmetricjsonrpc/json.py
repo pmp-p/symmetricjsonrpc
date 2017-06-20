@@ -102,7 +102,7 @@ class Writer(object):
             self.unflushed_write_value(value.decode(self.encoding or sys.getdefaultencoding()))
         elif isinstance(value, bool):
             self.s.write(value and 'true' or 'false')
-        elif isinstance(value, int) or isinstance(value, float) or isinstance(value, long):
+        elif isinstance(value, int) or isinstance(value, float):
             r = repr(value)
             if r[-1] == 'L':
                 r = r[:-1]
