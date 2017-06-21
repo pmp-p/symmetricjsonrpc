@@ -69,7 +69,7 @@ class WriterWrapper(object):
             self.flush()
 
     def flush(self):
-        data = ''.join(self.buff.decode())
+        data = ''.join(map(bytes.decode, self.buff))
         del self.buff[:]
         self.buff_len = 0
         if debug_write: print("write(%s)" % (repr(data),))
